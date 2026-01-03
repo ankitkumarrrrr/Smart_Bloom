@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartBloom | Smart Agriculture</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background: #f4f7f6; color: #333; scroll-behavior: smooth; }
+
+/* Navbar */
+nav { position: fixed; top: 0; width: 100%; background: #0b3d3a; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+nav h2 { color: #fff; }
+nav a { color: #fff; text-decoration: none; margin-left: 20px; font-weight: 500; }
+
+/* Hero */
+.hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1523348837708-15d4a09cfac2") center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-align: center; }
+.hero h1 { font-size: 3rem; }
+.hero button { padding: 12px 30px; border: none; background: #3ddc97; border-radius: 30px; font-size: 16px; cursor: pointer; margin-top: 20px; transition: 0.3s; }
+
+/* Content Sections */
+.content-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.content-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.content-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.content-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.content-text h2 {
+    color: #0b3d3a;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.content-text p {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.highlight {
+    color: #3ddc97;
+    font-weight: 700;
+}
+
+/* Animation Area */
+.working-area { background: #e9f5f2; text-align: center; overflow: hidden; padding: 90px 40px; }
+.animation-container { position: relative; height: 350px; max-width: 800px; margin: 20px auto; background: #fff; border-radius: 15px; border: 2px dashed #3ddc97; overflow: hidden; }
+.robot { position: absolute; width: 80px; left: 0%; top: 50px; z-index: 10; }
+.robot.active { animation: pollinate 8s ease-in-out infinite; }
+.flower { position: absolute; width: 80px; bottom: 30px; }
+#flower1 { left: 15%; } #flower2 { right: 15%; }
+
+.start-btn { padding: 15px 35px; background: #0b3d3a; color: white; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+
+/* Map Section */
+.map-section { background: #fff; text-align: center; padding: 90px 40px; }
+.map-container { width: 100%; max-width: 1000px; height: 450px; margin: 0 auto; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 5px solid #fff; }
+
+@keyframes pollinate {
+    0% { left: 0%; top: 50px; transform: rotate(0deg); }
+    25% { left: 15%; top: 180px; transform: rotate(15deg); } 
+    50% { left: 50%; top: 50px; transform: rotate(0deg); }    
+    75% { left: 75%; top: 180px; transform: rotate(-15deg); } 
+    100% { left: 0%; top: 50px; transform: rotate(0deg); }    
+}
+
+footer { background: #062d2b; color: #ccc; text-align: center; padding: 25px; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .content-text h2 { text-align: center; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>SmartBloom</h2>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="features.html" target="_blank">Features</a>
+        <a href="technology.html" target="_blank">Technology</a>
+        <a href="contact.html" target="_blank">Contact</a>
+        <a href="#location">Find Us</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <h1>Revolutionizing Smart Agriculture</h1>
+    <p>Automated Pollination & IoT-Based Farming Solutions for the Future</p>
+    <button onclick="window.location.href='#about'">Explore More</button>
+</div>
+
+<section id="about" class="content-section">
+    <div class="content-image">
+        <img src="https://smartbloom.in/assets/images/5.png" alt="Vertical Farming and Robotics">
+    </div>
+    <div class="content-text">
+        <h2>We are <span class="highlight">Revolutionizing Vertical Farming</span> & with Cross-Pollination</h2>
+        <p>
+            SmartBloom doesn't rely on any existing intellectual property but rather builds on established principles in robotics, machine learning, and agriculture. 
+        </p>
+        <p>
+            The project uses open-source platforms like <strong>Arduino</strong> and <strong>Edge Impulse</strong> to develop a custom system that automates the cross-pollination process. By combining software and hardware components in a unique way, SmartBloom brings a fresh approach to agricultural automation.
+        </p>
+    </div>
+</section>
+
+<section id="how-it-works" class="working-area">
+    <h2>See SmartBloom in Action</h2>
+    <button class="start-btn" onclick="togglePollination()" id="btnText">Start Pollination</button>
+    <div class="animation-container">
+        <img id="robot" class="robot" src="https://smartbloom.in/assets/images/robo.png" alt="Robot">
+        <img id="flower1" class="flower" src="https://smartbloom.in/assets/images/flower1.png" alt="Flower 1">
+        <img id="flower2" class="flower" src="https://smartbloom.in/assets/images/flower1.png" alt="Flower 2">
+    </div>
+</section>
+
+<section id="robot-vision" class="content-section" style="background: #ffffff; padding: 60px 40px;">
+    <div class="content-text">
+        <h2>Smart <span class="highlight">Robot Vision</span></h2>
+        <p>
+            Our robots use advanced <strong>Computer Vision</strong> and <strong>Deep Learning</strong> to identify flowers with over 80% accuracy. By isolating the flower from the background, the robot ensures precision during the pollination process.
+        </p>
+        <button class="start-btn" style="background: #3ddc97; color: #0b3d3a;">View Robot Analytics</button>
+    </div>
+    <div class="content-image">
+        <img src="https://cdn.pixabay.com/animation/2023/04/12/16/59/16-59-39-387_512.gif" alt="Robot Vision Analysis">
+        <p style="font-size: 0.8rem; color: #888; margin-top: 10px; text-align: center;">AI-Powered Object Detection active</p>
+    </div>
+</section>
+
+<section id="location" class="map-section">
+    <h2>Our Headquarters</h2>
+    <p style="margin-bottom: 20px;">GITAM University, Rushikonda, Visakhapatnam, Andhra Pradesh</p>
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3799.256865660682!2d83.3745260751737!3d17.781986483173783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395b1dc8545803%3A0x66f68e0d4734346!2sGITAM%20University!5e0!3m2!1sen!2sin!4v1700000000000" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+    <div style="margin-top: 30px;">
+        <a href="https://maps.google.com/?q=GITAM+University+Rushikonda" target="_blank">
+            <button class="start-btn" style="background: #3ddc97; color: #0b3d3a;">Get Directions on Google Maps</button>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 SmartBloom Technologies | All Rights Reserved</p>
+    <p style="font-size: 0.8rem; margin-top: 5px;">📍 GITAM Vizag Campus, Rushikonda</p>
+</footer>
+
+<script>
+    function togglePollination() {
+        const robot = document.getElementById('robot');
+        const btn = document.getElementById('btnText');
+        robot.classList.toggle('active');
+        if (robot.classList.contains('active')) {
+            btn.innerHTML = "Stop Pollination";
+            btn.style.background = "#e74c3c";
+        } else {
+            btn.innerHTML = "Start Pollination";
+            btn.style.background = "#0b3d3a";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology | SmartBloom</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --primary: #0b3d3a;
+    --accent: #3ddc97;
+    --dark: #062d2b;
+}
+
+/* 🌐 ANIMATED TECH BACKGROUND + FADE */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    overflow-x: hidden;
+    position: relative;
+    transition: opacity 0.4s ease;
+
+    background:
+        linear-gradient(120deg, #0b3d3a, #062d2b, #0b3d3a),
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80");
+    background-size: 400% 400%, cover;
+    background-position: 0% 50%, center;
+    background-attachment: fixed;
+
+    animation: techMove 15s ease infinite;
+}
+
+/* Gradient movement */
+@keyframes techMove {
+    0% { background-position: 0% 50%, center; }
+    50% { background-position: 100% 50%, center; }
+    100% { background-position: 0% 50%, center; }
+}
+
+/* 🌟 FLOATING PARTICLES */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(61,220,151,0.25) 2px, transparent 2px),
+        radial-gradient(circle at 80% 20%, rgba(61,220,151,0.25) 2px, transparent 2px),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 1.5px, transparent 1.5px);
+    background-size: 120px 120px;
+    animation: particles 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes particles {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+/* Keep content above background */
+nav, header, .tech-container, .cta-area {
+    position: relative;
+    z-index: 1;
+}
+
+/* Navbar */
+nav {
+    background: rgba(11, 61, 58, 0.95);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+nav h2 { color: #fff; margin: 0; }
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+nav a:hover { background: rgba(255,255,255,0.15); }
+
+/* Header */
+.tech-header {
+    background: linear-gradient(135deg, rgba(11,61,58,0.95), rgba(6,45,43,0.95));
+    color: white;
+    padding: 120px 20px 160px;
+    text-align: center;
+}
+.tech-header h1 { font-size: 3rem; margin-bottom: 10px; }
+.tech-header p { max-width: 600px; margin: auto; opacity: 0.9; }
+
+/* Container */
+.tech-container {
+    max-width: 1100px;
+    margin: -100px auto 80px;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    background: rgba(255,255,255,0.96);
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+/* Cards */
+.tech-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.3s;
+    border-bottom: 4px solid transparent;
+}
+.tech-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+}
+
+.tech-icon {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.tech-card h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.tech-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Button */
+.cta-area { text-align: center; padding-bottom: 80px; }
+.btn-home {
+    background: var(--primary);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn-home:hover {
+    background: var(--accent);
+    color: var(--primary);
+    transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>SmartBloom</h2>
+    <a href="#" onclick="goHome()"><i class="fas fa-arrow-left"></i> Home</a>
+</nav>
+
+<header class="tech-header">
+    <h1>Technology Stack</h1>
+    <p>We leverage industry-leading hardware and software to build the future of autonomous agriculture.</p>
+</header>
+
+<div class="tech-container">
+
+    <div class="tech-card">
+        <i class="fas fa-microchip tech-icon"></i>
+        <h3>ESP32 & IoT</h3>
+        <p>Low-power ESP32 microcontrollers with real-time sensor networks.</p>
+    </div>
+
+    <div class="tech-card">
+        <i class="fas fa-brain tech-icon"></i>
+        <h3>Artificial Intelligence</h3>
+        <p>On-device ML models for plant health and flowering detection.</p>
+    </div>
+
+    <div class="tech-card">
+        <i class="fas fa-eye tech-icon"></i>
+        <h3>Computer Vision</h3>
+        <p>High-accuracy vision systems to identify crops and growth stages.</p>
+    </div>
+
+    <div class="tech-card">
+        <i class="fas fa-cloud-upload-alt tech-icon"></i>
+        <h3>Cloud Analytics</h3>
+        <p>Predictive insights powered by cloud-scale data processing.</p>
+    </div>
+
+    <div class="tech-card">
+        <i class="fas fa-robot tech-icon"></i>
+        <h3>Automation Robotics</h3>
+        <p>Precision robotic arms for safe and accurate pollination.</p>
+    </div>
+
+    <div class="tech-card">
+        <i class="fas fa-wifi tech-icon"></i>
+        <h3>LoRaWAN</h3>
+        <p>Long-range communication for remote agricultural fields.</p>
+    </div>
+
+</div>
+
+<div class="cta-area">
+    <a href="#" class="btn-home" onclick="goHome()">Back to SmartBloom Home</a>
+</div>
+
+<script>
+function goHome() {
+    document.body.style.opacity = "0";
+    setTimeout(() => {
+        window.location.href = "bloom.html";
+    }, 400);
+}
+</script>
+
+</body>
+</html>
